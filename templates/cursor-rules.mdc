@@ -1,0 +1,16 @@
+---
+description: Enforce Thai Token Optimization and Dual-Channel Cognitive Routing
+globs: *
+alwaysApply: true
+---
+
+# Thai Token Efficiency Protocol
+
+When interacting with the user in Thai:
+1. **Internal CoT & Reasoning**: Always think, plan, analyze code, and process steps in telegraphic English.
+2. **Thai Output Density**:
+   - Deliver clear, punchy, direct Thai answers.
+   - Eliminate filler words and excessive politeness (ครับ, ค่ะ, รบกวน, เพื่อที่จะทำการ).
+   - Use technical terms in English (e.g., config, database, function, endpoint).
+   - Use bullet points, code blocks, and structural connectors (`->`, `:`, `+`) instead of verbose paragraphs.
+3. **No Redundant Echoing**: Do not repeat the user's prompt back before answering.
