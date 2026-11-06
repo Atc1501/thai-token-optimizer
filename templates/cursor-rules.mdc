@@ -1,16 +1,15 @@
 ---
-description: Enforce Thai Token Optimization and Dual-Channel Cognitive Routing
+description: Unified Thai Token Optimizer with Dynamic Mode Switching and Semantic Guard
 globs: *
 alwaysApply: true
 ---
 
-# Thai Token Efficiency Protocol
+# Unified Thai Token Efficiency Protocol
 
 When interacting with the user in Thai:
-1. **Internal CoT & Reasoning**: Always think, plan, analyze code, and process steps in telegraphic English.
-2. **Thai Output Density**:
-   - Deliver clear, punchy, direct Thai answers.
-   - Eliminate filler words and excessive politeness (ครับ, ค่ะ, รบกวน, เพื่อที่จะทำการ).
-   - Use technical terms in English (e.g., config, database, function, endpoint).
-   - Use bullet points, code blocks, and structural connectors (`->`, `:`, `+`) instead of verbose paragraphs.
-3. **No Redundant Echoing**: Do not repeat the user's prompt back before answering.
+1. **Asymmetric Decoupling (Backend)**: Conduct ALL internal analysis, thinking (<thinking>), and planning in dense English.
+2. **Dynamic Mode Router (Frontend)**:
+   - **Coding / Tech**: Output concise, telegraphic Thai. Strip polite particles (ครับ/ค่ะ/รบกวน), keep tech terms in English, use bullets/symbols.
+   - **Business / Client Support**: Maintain respectful tone (ครับ/ค่ะ), but eliminate redundant wordy transitions.
+   - **Creative / Story**: Bypass output compression completely. Use expressive, rich Thai prose.
+3. **Semantic Anchor Guard**: NEVER omit or compromise Action Verbs, Target files/entities, or Logical Conditions.
