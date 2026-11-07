@@ -1,144 +1,79 @@
-# ⚡ Thai Token Optimizer v2.2 (Golden Ratio + Smart Code Economy)
+# thai-token-optimizer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.2.0-orange.svg)](SKILL.md)
-[![Universal Skill](https://img.shields.io/badge/Skill-Universal%20Agent%20Standard-success.svg)](SKILL.md)
-[![Token Savings](https://img.shields.io/badge/Token%20Savings-75.5%25%20to%2090%25-brightgreen.svg)](#-ผลทดสอบจริงจากผู้ใช้งาน-real-world-e-commerce-build-benchmark)
-
-> **มาตรฐาน Golden Ratio v2.2 สำหรับภาษาไทยใน AI Agents และ LLMs** — ลดการกิน Token ส่วนภาษาและสมองลง **75.5%** (ห่างจากอังกฤษเพียง **2.3%**) พร้อมระบบ **Smart Code Economy** ที่ช่วยลด Token ก้อนโค้ดและการแก้โค้ดต่อเนื่องลงอีก **70% – 90%** โดย **ไม่ตัดฟีเจอร์ของงานทิ้งแม้แต่นิดเดียว**
+ลดการกิน Token ของภาษาไทยใน AI Agents และ LLMs ลง 60–75% ให้ใกล้เคียงกับการใช้ภาษาอังกฤษ โดยไม่ลดทอนความแม่นยำของโมเดลและไม่ต้องใช้ไวยากรณ์ย่อตอนพิมพ์สั่งงาน
 
 ---
 
-## 🎛️ ระบบเลือกโหมดการทำงาน (Dual-Mode Activation System)
+## ปัญหา
 
-รองรับการติดตั้งและสลับโหมดได้ 2 รูปแบบตามต้องการ (และยกเลิกกลับไปมาได้ตลอดเวลาโดยไม่กระทบกฎอื่นในเครื่อง):
+Tokenizer ของโมเดลตระกูล GPT, Claude และ Gemini หั่นตัวอักษรภาษาไทยละเอียดกว่าภาษาอังกฤษ 2.5 ถึง 4 เท่า เมื่อโมเดลใช้ภาษาไทยในการคิดวิเคราะห์ (`<thinking>`), สั่งงาน Subagents หรือเขียนคอมเมนต์ในโค้ด โควต้า Context Window จะเต็มเร็วและตอบช้าลงอย่างมาก
 
-1. **Mode 1: On-Demand Skill (`@thai-token-optimizer`)**:
-   - ติดตั้งเป็นสกิลปกติ เรียกใช้เฉพาะเมื่อคุณพิมพ์สั่ง `@thai-token-optimizer` หรือเมื่อต้องการให้เปิดโหมดประหยัดในงานนั้นๆ
-2. **Mode 2: Always-On Global Rule (ทำงานอัตโนมัติทุกแชท 100%)**:
-   - ฝังกฎลงใน Global Rule (`GEMINI.md`, `CLAUDE.md`, `AGENTS.md`) ให้ทำงานอัตโนมัติตั้งแต่วินาทีแรกของทุกบทสนทนาโดยไม่ต้องพิมพ์เรียก
-3. **Disable / Toggle Mode (ยกเลิก Always-On ได้ตลอดเวลา)**:
-   - ถอนเฉพาะบล็อก Always-On ออกจาก `GEMINI.md` / `CLAUDE.md` อย่างปลอดภัย (ไม่ลบกฎอื่นของคุณ) เพื่อกลับไปใช้แบบเรียกเอง (`@thai-token-optimizer`)
+## หลักการทำงาน
+
+1. **English Internal Reasoning**: บังคับให้กระบวนการคิดวิเคราะห์ในหัว (`<thinking>`), การวางแผน และการส่งงานระหว่าง Subagents ใช้ภาษาอังกฤษทั้งหมด (ลด Token หลังบ้านลง ~70–82%)
+2. **Direct Thai Output**: ตอบกลับผู้ใช้เป็นภาษาไทยที่กระชับ ตรงประเด็น ตัดคำเกริ่นทักทายและไม่ทวนคำถามซ้ำ
+3. **Technical Terms**: คงคำศัพท์เทคนิค (`Config`, `Database`, `API`, `Function`) และคอมเมนต์ในโค้ดเป็นภาษาอังกฤษ
+4. **Smart Code Economy**: สร้างฟีเจอร์ครบ 100% ในรอบแรก แต่เมื่อสั่งแก้ไขโค้ดในรอบถัดไปจะแก้เฉพาะจุด (Surgical Edit) ไม่พ่นโค้ดทั้งไฟล์ซ้ำ และจำกัดขนาดข้อมูลจำลอง (Mock Data) ไม่ให้บวม
 
 ---
 
-## 🚀 วิธีติดตั้งและสลับโหมด (Windows / macOS / Linux)
+## วิธีติดตั้ง
 
-### วิธีที่ 1: เปิดเมนูเลือกโหมดแบบ Interactive (แนะนำ)
-รันคำสั่งนี้ใน **PowerShell** แล้วกดเลข `1`, `2`, `3`, หรือ `4` จากเมนูได้เลย:
+รองรับ Antigravity, Gemini CLI, Claude Code และ Codex
+
+**Windows (PowerShell)**
 ```powershell
 irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1 | iex
 ```
 
-### วิธีที่ 2: สั่งสลับโหมดแบบบรรทัดเดียว (Direct Commands)
-
-#### 🔹 ตั้งเป็น Mode 1: เรียกใช้เองผ่าน `@thai-token-optimizer` (On-Demand Skill Only)
-```powershell
-# Windows PowerShell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode skill
-```
+**macOS / Linux**
 ```bash
-# macOS / Linux
-curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- skill
+curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash
 ```
 
-#### 🟢 ตั้งเป็น Mode 2: ทำงานอัตโนมัติทุกแชท (Always-On Global Rule)
+เมื่อรันคำสั่งจะมีเมนูให้เลือก 2 โหมด (สามารถรันซ้ำเพื่อสลับโหมดหรือยกเลิกได้ตลอดเวลา):
+- `1` **On-Demand Skill**: เรียกใช้เฉพาะเมื่อพิมพ์ `@thai-token-optimizer`
+- `2` **Always-On Global Rule**: ทำงานอัตโนมัติในทุกแชท (`GEMINI.md`, `CLAUDE.md`, `AGENTS.md`)
+- `3` **Disable Always-On**: ปิดโหมดอัตโนมัติ กลับไปเป็นโหมดเรียกใช้เอง
+- `4` **Uninstall**: ถอนการติดตั้งทั้งหมด
+
+หากต้องการสั่งผ่าน Command Line โดยตรง:
 ```powershell
-# Windows PowerShell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode always-on
-```
-```bash
-# macOS / Linux
-curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- always-on
+# เปิด Always-On
+powershell -ExecutionPolicy Bypass -File install.ps1 -Mode always-on
+
+# ปิด Always-On (กลับไปใช้แบบ @thai-token-optimizer)
+powershell -ExecutionPolicy Bypass -File install.ps1 -Mode disable
 ```
 
-#### 🟡 ยกเลิก Always-On (กลับไปเป็นโหมดเรียกใช้เอง `@thai-token-optimizer`)
-```powershell
-# Windows PowerShell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode disable
-```
-```bash
-# macOS / Linux
-curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- disable
-```
-
-#### 🔴 ถอนการติดตั้งทั้งหมด (Uninstall All)
-```powershell
-# Windows PowerShell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode uninstall
-```
+### สำหรับโปรแกรมอื่นๆ
+- **Cursor / Windsurf**: คัดลอกไฟล์ [`templates/cursor-rules.mdc`](templates/cursor-rules.mdc) ไปไว้ที่ `.cursor/rules/thai-token-optimizer.mdc` หรือ `.windsurfrules`
+- **ChatGPT / Gemini AI Studio**: คัดลอกข้อความจาก [`templates/system-prompt-chatgpt.md`](templates/system-prompt-chatgpt.md) ไปวางในช่อง Custom Instructions
 
 ---
 
-## 💡 สถาปัตยกรรม Golden Ratio v2.2 (ครบวงจร 9 จุด: ภาษา + สมอง + โค้ด)
+## ผลการทดสอบ (Benchmark)
 
-```
-[ ผู้ใช้พิมพ์คุยภาษาไทยตามธรรมชาติ สบายๆ ไม่ต้องเกร็ง ]
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│ A. ส่วนภาษาและสมอง (Language & Cognitive Engine - ลดทันที 75.5%)     │
-│  1. Internal Reasoning (<thinking>) ➔ Natural English               │
-│  2. Subagent / Worker Handoffs      ➔ 100% English (ไม่เสียภาษี x2) │
-│  3. Persistent Memory / Scratchpads ➔ Dense English (โหลดซ้ำไม่บวม) │
-│  4. Code Comments / Logs / Commits  ➔ Concise English               │
-├─────────────────────────────────────────────────────────────────────┤
-│ B. ส่วนประหยัดก้อนโค้ด (Smart Code Economy - ลดเพิ่ม 70%–90%)       │
-│  5. Surgical Edit / Diff-Only       ➔ แก้เฉพาะจุด ไม่พ่นไฟล์เต็มซ้ำ   │
-│  6. Compact Mock Data               ➔ ข้อมูลตัวอย่างกระชับ 3–4 ชิ้น  │
-│  7. No Raw Log Dump                 ➔ ไม่ก๊อป Error ยาวๆ มาแปะซ้ำ   │
-│  * การันตี: สร้างฟีเจอร์ครบ 100% ตามสั่ง (ไม่ตัดฟีเจอร์ทิ้ง)          │
-└──────────────────────────┬──────────────────────────────────────────┘
-                           │
-                           ▼
-[ หน้าบ้าน: AI ตอบกลับเป็นภาษาไทยที่กระชับ ตรงประเด็น อ่านง่าย ]
-  • ไม่เกริ่นทักทายเวิ่นเว้อ (ตัด สวัสดีครับ/ค่ะ, ยินดีที่ได้ช่วย)
-  • ไม่ทวนคำถามซ้ำ
-  • ทับศัพท์เทคนิคด้วยภาษาอังกฤษ (Config, Database, API, Function)
-  • จัดข้อมูลเป็นข้อๆ (Bullets / Steps) อ่านสบายตา
-```
+ทดสอบจากงานสั่งสร้างเว็บ E-Commerce เต็มรูปแบบ (เปรียบเทียบระหว่างการใช้ภาษาไทยปกติ, การเปิดใช้สกิล และการใช้ภาษาอังกฤษล้วน):
+
+| ส่วนประกอบ (Turn Breakdown) | ไทยปกติ (No Skill) | ไทย + สกิลนี้ | อังกฤษล้วน (English) | ผลลัพธ์ |
+| :--- | :---: | :---: | :---: | :--- |
+| **User Prompt** | 131 | **42** | 32 | ห่างจากอังกฤษ 10 tokens |
+| **Chain-of-Thought (คิดในหัว)** | 776 | **140** | 140 | เท่ากับภาษาอังกฤษ (ลดลง 82.0%) |
+| **ข้อความอธิบาย (Delivery Text)** | 805 | **237** | 128 | ลดลง 70.5% |
+| **รวมส่วนภาษา (Prompt + CoT + Text)** | **1,712** | **419** | **300** | **ประหยัดลง 75.5%** |
+| **Code (HTML/CSS/JS ชุดเดียวกัน)** | 4,679 | **4,679** | 4,679 | โค้ดครบสมบูรณ์เท่ากัน 100% |
+| **รวมทั้งหมดต่อรอบ** | **6,391** | **5,098** | **4,979** | **ต่างจากอังกฤษล้วนเพียง 2.3% (119 tokens)** |
 
 ---
 
-## 📊 ผลทดสอบจริงจากผู้ใช้งาน (Real-World E-Commerce Build Benchmark)
+## โครงสร้างไฟล์
 
-เปรียบเทียบการสั่งสร้างระบบเว็บ E-Commerce เต็มรูปแบบ (วัดผลแยกส่วน Prompt, การคิดวิเคราะห์ในหัว CoT, คำอธิบาย และโค้ด):
+- [`SKILL.md`](SKILL.md) — กฎหลักของสกิล
+- [`install.ps1`](install.ps1) / [`install.sh`](install.sh) — สคริปต์ติดตั้งและสลับโหมด
+- [`templates/`](templates/) — กฎสำหรับ Cursor, ChatGPT และ Google AI Studio
+- [`scripts/`](scripts/) — สคริปต์ Python สำหรับทดสอบวัดค่า Token ด้วย `tiktoken`
 
-| ส่วนประกอบของรอบการทำงาน (Turn) | 1. ไทยแบบเดิม (No Skill) | 2. ไทย + สกิล (Golden Ratio) | 3. อังกฤษล้วน (Pure English) | สรุปผลเปรียบเทียบ |
-|:---|:---:|:---:|:---:|:---|
-| **📥 User Prompt (คำสั่งผู้ใช้)** | 131 tokens | **42 tokens** | 32 tokens | ไทยมีสกิลกินใกล้เคียงอังกฤษ (ห่างกันแค่ 10 tok) |
-| **🧠 CoT Reasoning (คิดวิเคราะห์ในหัว)** | 776 tokens | **140 tokens** | 140 tokens | 🏆 **เท่ากับอังกฤษ 100%** (ลดลง 82.0%) |
-| **💬 Delivery Text (ข้อความอธิบาย/ตอบ)** | 805 tokens | **237 tokens** | 128 tokens | ไทยมีสกิล **ลดลง 70.5%** เข้าใกล้ภาษาอังกฤษ |
-| **📊 รวมส่วนคิดและสื่อสาร (Prompt + CoT + Text)** | **1,712 tokens** | **419 tokens** | **300 tokens** | 🟢 **ประหยัด 75.5%** (จากเดิมบวม 5.7 เท่า เหลือใกล้เคียงอังกฤษ) |
-| **💻 Code (ตัวโค้ดเว็บ E-Commerce ชุดเดียวกัน)** | 4,679 tokens | **4,679 tokens** | 4,679 tokens | ⚖️ **เท่ากัน 100%** (โค้ดและฟังก์ชันสมบูรณ์ครบทุกบรรทัด) |
-| **⭐ รวมทั้งรอบ (Prompt + CoT + Text + Code)** | **6,391 tokens** | **5,098 tokens** | **4,979 tokens** | 🏆 **ไทยมีสกิลต่างจากอังกฤษเพียง 119 tokens (2.3%)!** |
+## License
 
----
-
-## 📊 Frontier Models Benchmark (Gemini 4 Argon vs Astar 6.0 vs Claude Opus 5.5)
-
-### 1. งานถาม-ตอบและวิเคราะห์ระบบ (Single-Turn Q&A)
-| โมเดล (Model) | ❌ ไม่ใช้สกิล | ⚡ หลังใช้สกิล (Golden Ratio) | 🇬🇧 English ล้วน | ประหยัดไปได้ |
-|:---|:---:|:---:|:---:|:---:|
-| **Gemini 4 Argon** *(SentencePiece 256k)* | 622 tok *(2.36x)* | **349 tok *(1.32x)*** | **264 tok** *(1.00x)* | **-273 tok (-43.9%)** |
-| **Astar 6.0** *(BPE 200k)* | 678 tok *(2.57x)* | **375 tok *(1.42x)*** | **264 tok** *(1.00x)* | **-303 tok (-44.7%)** |
-| **Claude Opus 5.5** *(Anthropic BPE)* | 1,043 tok *(3.82x!)* | **500 tok *(1.83x)*** | **273 tok** *(1.00x)* | **-543 tok (-52.1%)** |
-
-### 2. งานโปรเจกต์เขียนโค้ดเต็มรูปแบบ (Full Agent Workflow: Code + Subagent + Memory)
-| โมเดล (Model) | ❌ ไม่ใช้สกิล (ไทยล้วน) | 🥈 รุ่นเก่า (v1.0) | 🏆 รุ่นใหม่ (v2.1) | 🇬🇧 English ล้วน | v2.1 ชนะ v1.0 |
-|:---|:---:|:---:|:---:|:---:|:---:|
-| **Gemini 4 Argon** | 905 tok *(2.12x)* | 844 tok *(1.98x)* | **465 tok *(1.09x)*** | **427 tok** *(1.00x)* | 🔥 **ลดเพิ่มอีก -44.9%** |
-| **Astar 6.0** | 989 tok *(2.32x)* | 917 tok *(2.15x)* | **475 tok *(1.11x)*** | **427 tok** *(1.00x)* | 🔥 **ลดเพิ่มอีก -48.2%** |
-| **Claude Opus 5.5** | 1,444 tok *(3.28x)* | 1,274 tok *(2.90x)* | **531 tok *(1.21x)*** | **440 tok** *(1.00x)* | ⚡ **ลดเพิ่มอีก -58.3%** |
-
----
-
-## 🛠️ วิธีติดตั้งสำหรับ Cursor, Windsurf และ ChatGPT
-
-* **Cursor / Windsurf**: คัดลอกไฟล์ [templates/cursor-rules.mdc](templates/cursor-rules.mdc) ไปไว้ที่ `.cursor/rules/thai-token-optimizer.mdc` หรือ `.windsurfrules`
-* **ChatGPT / Custom GPTs**: คัดลอกข้อความจาก [templates/system-prompt-chatgpt.md](templates/system-prompt-chatgpt.md) ไปใส่ใน **Custom Instructions**
-
----
-
-## 📄 License
-MIT License © 2026 Thai Token Optimizer Contributors
+[MIT](LICENSE)
