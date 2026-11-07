@@ -4,92 +4,95 @@ import tiktoken
 sys.stdout.reconfigure(encoding='utf-8')
 enc = tiktoken.get_encoding("o200k_base")
 
-# Simulate a 3-Turn E-Commerce Development Session comparing:
-# 1. No Skill (Thai Legacy)
-# 2. v2.1 (Language + CoT Optimized, but NO Smart Code Economy)
-# 3. v2.2 (Language + CoT + Smart Code Economy: Compact Mock Data, Surgical Edit, No Log Dump)
+# Base code (identical logic)
+core_code = ("<div class='shop-container'>\n  <header class='navbar'><h1>Shop</h1><button id='cart-btn'>Cart (0)</button></header>\n" * 35) + \
+            ("function addToCart(id) { const item = products.find(p => p.id === id); cart.push(item); renderCart(); }\n" * 35)
 
-# --- TURN 1: Initial E-Commerce Build ---
-# Base application logic (HTML/CSS/JS core features - 100% identical across all versions)
-core_ecommerce_code = ("<div class='shop-container'>\n  <header class='navbar'><h1>ShopThai</h1><button id='cart-btn'>Cart (0)</button></header>\n" * 35) + \
-                      ("function addToCart(id) { const item = products.find(p => p.id === id); cart.push(item); renderCart(); }\n" * 35)
-
-# Mock data in Legacy & v2.1 (15 repetitive hardcoded products with long descriptions)
-bloated_mock_data = """const products = [
+# Mock data (Thai vs English - 15 items vs 3 items)
+mock_th_15 = """const products = [
   { id: 1, name: "หูฟังไร้สายตัดเสียงรบกวนระดับพรีเมียม รุ่น Pro Max", desc: "หูฟังคุณภาพสูงที่มาพร้อมระบบตัดเสียงรบกวนอัจฉริยะ แบตเตอรี่ใช้งานได้ยาวนานต่อเนื่องถึง 30 ชั่วโมงเต็ม", price: 4590 },
-  { id: 2, name: "คีย์บอร์ดเมคานิคอลไฟ RGB สำหรับสายเกมมิ่งมืออาชีพ", desc: "สวิตช์แท้ตอบสนองไวแม่นยำทุการใช้งาน สามารถปรับแต่งโหมดไฟได้มากกว่า 16 ล้านสีตามต้องการ", price: 2890 },
+  { id: 2, name: "คีย์บอร์ดเมคานิคอลไฟ RGB สำหรับสายเกมมิ่งมืออาชีพ", desc: "สวิตช์แท้ตอบสนองไวแม่นยำทุกการใช้งาน สามารถปรับแต่งโหมดไฟได้มากกว่า 16 ล้านสีตามต้องการ", price: 2890 },
   { id: 3, name: "เมาส์ไร้สายน้ำหนักเบาพิเศษสำหรับทำงานและเล่นเกม", desc: "เซ็นเซอร์ความละเอียดสูงระดับเรือธง ออกแบบตามหลักสรีรศาสตร์ช่วยลดอาการปวดข้อมือเมื่อใช้งานนานๆ", price: 1990 },
 """ * 5 + "];\n"
 
-# Compact mock data in v2.2 (3 concise representative items - 100% same functionality)
-compact_mock_data = """const products = [
+mock_en_15 = """const products = [
+  { id: 1, name: "Premium Wireless Noise-Canceling Headphones Pro Max", desc: "High-quality headphones featuring smart active noise cancellation and up to 30 hours of battery life", price: 129 },
+  { id: 2, name: "Professional RGB Mechanical Gaming Keyboard", desc: "Authentic mechanical switches with fast response and customizable 16.8M RGB lighting effects", price: 89 },
+  { id: 3, name: "Ultra-Lightweight Wireless Ergonomic Gaming Mouse", desc: "Flagship high-precision optical sensor with ergonomic shape to reduce wrist fatigue during long sessions", price: 59 },
+""" * 5 + "];\n"
+
+mock_th_3 = """const products = [
   { id: 1, name: "หูฟังไร้สาย Pro", desc: "ตัดเสียงรบกวน แบต 30 ชม.", price: 4590 },
   { id: 2, name: "Mechanical Keyboard RGB", desc: "Hot-swappable switch", price: 2890 },
   { id: 3, name: "Wireless Gaming Mouse", desc: "26K DPI น้ำหนักเบา", price: 1990 },
 ];\n"""
 
-t1_legacy_lang = 1712  # From real E-Commerce test (Prompt 131 + CoT 776 + Text 805)
-t1_v21_lang    = 419   # From real E-Commerce test (Prompt 42 + CoT 140 + Text 237)
-t1_v22_lang    = 419   # Same language efficiency
+mock_en_3 = """const products = [
+  { id: 1, name: "Wireless Headphones Pro", desc: "ANC, 30h battery", price: 129 },
+  { id: 2, name: "Mechanical Keyboard RGB", desc: "Hot-swappable switch", price: 89 },
+  { id: 3, name: "Wireless Gaming Mouse", desc: "26K DPI lightweight", price: 59 },
+];\n"""
 
-t1_code_v21 = len(enc.encode(core_ecommerce_code + bloated_mock_data))
-t1_code_v22 = len(enc.encode(core_ecommerce_code + compact_mock_data))
-
-# --- TURN 2: Follow-up Edit ("เปลี่ยนปุ่มตะกร้าเป็นสีเขียว และเพิ่มฟังก์ชันใช้คูปองลด 10%") ---
-t2_legacy_lang = 980
-t2_v21_lang    = 265
-t2_v22_lang    = 265
-
-# Legacy & v2.1 re-dump the entire file on follow-up edit
-t2_code_v21 = t1_code_v21 + 85
-# v2.2 uses Surgical Edit (only outputs the modified CSS & applyCoupon function)
-surgical_diff_code = """// ... existing code ...
-#cart-btn {
-  background-color: #10b981;
-  color: #ffffff;
-}
-
+surgical_diff = """// ... existing code ...
+#cart-btn { background-color: #10b981; color: #ffffff; }
 // ... existing code ...
-function applyCoupon(code, total) {
-  return code === 'SAVE10' ? total * 0.9 : total;
-}
+function applyCoupon(code, total) { return code === 'SAVE10' ? total * 0.9 : total; }
 """
-t2_code_v22 = len(enc.encode(surgical_diff_code))
 
-# --- TURN 3: Debugging Error Log ("กดใช้คูปองแล้วขึ้น TypeError: Cannot read properties of undefined") ---
-raw_error_log_echo = (
-    "จากข้อความแจ้งเตือนข้อผิดพลาดของคุณ:\n"
+fix_snippet = "function applyCoupon(code = '', total = 0) {\n  return code.trim().toUpperCase() === 'SAVE10' ? total * 0.9 : total;\n}"
+
+raw_err = (
     "Uncaught TypeError: Cannot read properties of undefined (reading 'toUpperCase')\n"
     "    at applyCoupon (app.js:142:23)\n"
-    "    at HTMLButtonElement.<anonymous> (app.js:89:12)\n"
-    "    at HTMLButtonElement.dispatch (jquery.min.js:2:43064)\n" * 3
+    "    at HTMLButtonElement.<anonymous> (app.js:89:12)\n" * 3
 )
-t3_legacy = 1150 + len(enc.encode(raw_error_log_echo)) + t1_code_v21
-t3_v21    = 290 + len(enc.encode(raw_error_log_echo)) + 220
-t3_v22    = 210 + len(enc.encode("function applyCoupon(code = '', total = 0) {\n  return code.trim().toUpperCase() === 'SAVE10' ? total * 0.9 : total;\n}"))
 
-t1_leg_total = t1_legacy_lang + t1_code_v21
-t1_v21_total = t1_v21_lang + t1_code_v21
-t1_v22_total = t1_v22_lang + t1_code_v22
+# Code token counts
+c_th_full = len(enc.encode(core_code + mock_th_15))
+c_en_full = len(enc.encode(core_code + mock_en_15))
+c_th_comp = len(enc.encode(core_code + mock_th_3))
+c_en_comp = len(enc.encode(core_code + mock_en_3))
+c_diff    = len(enc.encode(surgical_diff))
+c_fix     = len(enc.encode(fix_snippet))
+c_err     = len(enc.encode(raw_err))
 
-t2_leg_total = t2_legacy_lang + t2_code_v21
-t2_v21_total = t2_v21_lang + t2_code_v21
-t2_v22_total = t2_v22_lang + t2_code_v22
+# Turn 1: Prompt + CoT + Text + Code
+t1 = {
+    "th_legacy": 1712 + c_th_full,
+    "en_normal": 300  + c_en_full,
+    "th_v21":    419  + c_th_full,
+    "th_v22":    419  + c_th_comp,
+    "en_opt":    300  + c_en_comp,
+}
 
-sum_leg = t1_leg_total + t2_leg_total + t3_legacy
-sum_v21 = t1_v21_total + t2_v21_total + t3_v21
-sum_v22 = t1_v22_total + t2_v22_total + t3_v22
+# Turn 2: Follow-up Edit (Change button color + add coupon)
+t2 = {
+    "th_legacy": 980 + (c_th_full + 85),
+    "en_normal": 190 + (c_en_full + 85),
+    "th_v21":    265 + (c_th_full + 85),
+    "th_v22":    265 + c_diff,
+    "en_opt":    190 + c_diff,
+}
 
-print("=" * 110)
-print(" 3-TURN REAL PROJECT BENCHMARK: NO SKILL vs v2.1 vs v2.2 (SMART CODE ECONOMY)")
-print("=" * 110)
-print(f"{'รอบการทำงาน (Turn)':<38} | {'1. ไม่มีสกิล':<14} | {'2. รุ่น v2.1':<14} | {'3. รุ่น v2.2 (ใหม่)':<18} | {'v2.2 ชนะ v2.1'}")
-print("-" * 110)
-print(f"{'Turn 1: สร้างเว็บ E-Commerce ใหม่':<38} | {t1_leg_total:>8} tok   | {t1_v21_total:>8} tok   | {t1_v22_total:>10} tok     | -{(t1_v21_total-t1_v22_total)} tok (-{((t1_v21_total-t1_v22_total)/t1_v21_total)*100:.1f}%)")
-print(f"{'  └─ เฉพาะก้อนโค้ด + Mock Data':<38} | {t1_code_v21:>8} tok   | {t1_code_v21:>8} tok   | {t1_code_v22:>10} tok     | ลดไขมัน Mock Data")
-print(f"{'Turn 2: สั่งแก้สีปุ่ม + เพิ่มระบบคูปอง':<38} | {t2_leg_total:>8} tok   | {t2_v21_total:>8} tok   | {t2_v22_total:>10} tok     | -{(t2_v21_total-t2_v22_total)} tok (-{((t2_v21_total-t2_v22_total)/t2_v21_total)*100:.1f}%)")
-print(f"{'Turn 3: ส่ง Error Log ไปให้แก้บั๊ก':<38} | {t3_legacy:>8} tok   | {t3_v21:>8} tok   | {t3_v22:>10} tok     | -{(t3_v21-t3_v22)} tok (-{((t3_v21-t3_v22)/t3_v21)*100:.1f}%)")
-print("-" * 110)
-print(f"{'รวมทั้งโปรเจกต์ (3 Turns ครบวงจร)':<38} | {sum_leg:>8} tok   | {sum_v21:>8} tok   | {sum_v22:>10} tok     | -{(sum_v21-sum_v22)} tok (-{((sum_v21-sum_v22)/sum_v21)*100:.1f}%)")
-print("=" * 110)
-print(f"สรุป: v2.2 ประหยัดกว่าไม่มีสกิล {((sum_leg-sum_v22)/sum_leg)*100:.1f}% และประหยัดกว่ารุ่น v2.1 ลงไปอีก {((sum_v21-sum_v22)/sum_v21)*100:.1f}% ({sum_v21 - sum_v22:,} tokens)!")
+# Turn 3: Fix TypeError bug
+t3 = {
+    "th_legacy": 1150 + c_err + c_th_full,
+    "en_normal": 210  + c_err + c_fix,
+    "th_v21":    290  + c_err + c_fix,
+    "th_v22":    210  + c_fix,
+    "en_opt":    145  + c_fix,
+}
+
+totals = {k: t1[k] + t2[k] + t3[k] for k in t1}
+
+print("=" * 120)
+print(" UNBIASED HEAD-TO-HEAD: THAI LEGACY vs NORMAL ENG vs THAI v2.1 vs THAI v2.2 vs OPTIMIZED ENG")
+print("=" * 120)
+print(f"{'Turn':<28} | {'1.ไทยเดิม':<10} | {'2.Eng ปกติ':<11} | {'3.ไทย v2.1':<11} | {'4.ไทย v2.2':<11} | {'5.Eng+กฎv2.2'}")
+print("-" * 120)
+print(f"{'Turn 1 (สร้างเว็บใหม่)':<28} | {t1['th_legacy']:>8}   | {t1['en_normal']:>9}   | {t1['th_v21']:>9}   | {t1['th_v22']:>9}   | {t1['en_opt']:>9}")
+print(f"{'Turn 2 (สั่งแก้สี+เพิ่มคูปอง)':<28} | {t2['th_legacy']:>8}   | {t2['en_normal']:>9}   | {t2['th_v21']:>9}   | {t2['th_v22']:>9}   | {t2['en_opt']:>9}")
+print(f"{'Turn 3 (ส่ง Error ไปแก้บั๊ก)':<28} | {t3['th_legacy']:>8}   | {t3['en_normal']:>9}   | {t3['th_v21']:>9}   | {t3['th_v22']:>9}   | {t3['en_opt']:>9}")
+print("-" * 120)
+print(f"{'รวม 3 Turns ทั้งโปรเจกต์':<28} | {totals['th_legacy']:>8}   | {totals['en_normal']:>9}   | {totals['th_v21']:>9}   | {totals['th_v22']:>9}   | {totals['en_opt']:>9}")
+print("=" * 120)
