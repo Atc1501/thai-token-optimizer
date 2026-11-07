@@ -1,31 +1,76 @@
-# ⚡ Thai Token Optimizer v2.0 (Golden Ratio + Full Lifecycle)
+# ⚡ Thai Token Optimizer v2.1 (Golden Ratio + Dual-Mode Activation)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)](SKILL.md)
+[![Version](https://img.shields.io/badge/Version-2.1.0-orange.svg)](SKILL.md)
 [![Universal Skill](https://img.shields.io/badge/Skill-Universal%20Agent%20Standard-success.svg)](SKILL.md)
 [![Token Savings](https://img.shields.io/badge/Token%20Savings-60%25%20to%2075%25-brightgreen.svg)](#-frontier-models-benchmark)
 
-> **มาตรฐาน Golden Ratio v2.0 สำหรับภาษาไทยใน AI Agents และ LLMs** — ลดการกิน Token ลง **60% – 75%** จนเทียบเท่าหรือประหยัดกว่าภาษาอังกฤษ โดยที่ **AI ไม่ฉลาดน้อยลงแม้แต่ 1%** และ **ผู้ใช้พิมพ์คุยภาษาไทยได้ตามธรรมชาติ สบายๆ ไม่ต้องเกร็งไวยากรณ์**
+> **มาตรฐาน Golden Ratio v2.1 สำหรับภาษาไทยใน AI Agents และ LLMs** — ลดการกิน Token ลง **60% – 75%** จนเทียบเท่าหรือประหยัดกว่าภาษาอังกฤษ โดยที่ **AI ไม่ฉลาดน้อยลงแม้แต่ 1%** และ **ผู้ใช้พิมพ์คุยภาษาไทยได้ตามธรรมชาติ สบายๆ ไม่ต้องเกร็งไวยากรณ์**
 
 ---
 
-## 🚀 ติดตั้งด่วนในบรรทัดเดียว (1-Line Quick Install)
+## 🎛️ ระบบเลือกโหมดการทำงาน (Dual-Mode Activation System)
 
-ติดตั้งเข้า **Antigravity, Gemini CLI, Codex, และ Claude Code** พร้อมกันอัตโนมัติ:
+รองรับการติดตั้งและสลับโหมดได้ 2 รูปแบบตามต้องการ (และยกเลิกกลับไปมาได้ตลอดเวลาโดยไม่กระทบกฎอื่นในเครื่อง):
 
-### Windows (PowerShell)
+1. **Mode 1: On-Demand Skill (`@thai-token-optimizer`)**:
+   - ติดตั้งเป็นสกิลปกติ เรียกใช้เฉพาะเมื่อคุณพิมพ์สั่ง `@thai-token-optimizer` หรือเมื่อต้องการให้เปิดโหมดประหยัดในงานนั้นๆ
+2. **Mode 2: Always-On Global Rule (ทำงานอัตโนมัติทุกแชท 100%)**:
+   - ฝังกฎลงใน Global Rule (`GEMINI.md`, `CLAUDE.md`, `AGENTS.md`) ให้ทำงานอัตโนมัติตั้งแต่วินาทีแรกของทุกบทสนทนาโดยไม่ต้องพิมพ์เรียก
+3. **Disable / Toggle Mode (ยกเลิก Always-On ได้ตลอดเวลา)**:
+   - ถอนเฉพาะบล็อก Always-On ออกจาก `GEMINI.md` / `CLAUDE.md` อย่างปลอดภัย (ไม่ลบกฎอื่นของคุณ) เพื่อกลับไปใช้แบบเรียกเอง (`@thai-token-optimizer`)
+
+---
+
+## 🚀 วิธีติดตั้งและสลับโหมด (Windows / macOS / Linux)
+
+### วิธีที่ 1: เปิดเมนูเลือกโหมดแบบ Interactive (แนะนำ)
+รันคำสั่งนี้ใน **PowerShell** แล้วกดเลข `1`, `2`, `3`, หรือ `4` จากเมนูได้เลย:
 ```powershell
 irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1 | iex
 ```
 
-### macOS / Linux
+### วิธีที่ 2: สั่งสลับโหมดแบบบรรทัดเดียว (Direct Commands)
+
+#### 🔹 ตั้งเป็น Mode 1: เรียกใช้เองผ่าน `@thai-token-optimizer` (On-Demand Skill Only)
+```powershell
+# Windows PowerShell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode skill
+```
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- skill
+```
+
+#### 🟢 ตั้งเป็น Mode 2: ทำงานอัตโนมัติทุกแชท (Always-On Global Rule)
+```powershell
+# Windows PowerShell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode always-on
+```
+```bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- always-on
+```
+
+#### 🟡 ยกเลิก Always-On (กลับไปเป็นโหมดเรียกใช้เอง `@thai-token-optimizer`)
+```powershell
+# Windows PowerShell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode disable
+```
+```bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.sh | bash -s -- disable
+```
+
+#### 🔴 ถอนการติดตั้งทั้งหมด (Uninstall All)
+```powershell
+# Windows PowerShell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/install.ps1))) -Mode uninstall
 ```
 
 ---
 
-## 💡 สถาปัตยกรรม Golden Ratio v2.0 (ครบวงจร 6 จุด)
+## 💡 สถาปัตยกรรม Golden Ratio v2.1 (ครบวงจร 6 จุด)
 
 ```
 [ ผู้ใช้พิมพ์คุยภาษาไทยตามธรรมชาติ สบายๆ ไม่ต้องเกร็ง ]
@@ -50,36 +95,26 @@ curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/i
 
 ## 📊 Frontier Models Benchmark (Gemini 4 Argon vs Astar 6.0 vs Claude Opus 5.5)
 
-ทดสอบด้วยโจทย์ออกแบบระบบแก้ปัญหา *Microservices Race Condition ช่วง Flash Sale รองรับคนเข้าพร้อมกันหลักแสนคน* (รวม Input + Thinking + Output):
-
-### 1. โหมดถาม-ตอบปกติ (Standard Reasoning)
-| โมเดล (Model) | 🇬🇧 English ล้วน | ❌ ก่อนใช้สกิล (ไทยเดิม) | ⚡ หลังใช้สกิล (v2.0) | ประหยัดไปได้ |
+### 1. งานถาม-ตอบและวิเคราะห์ระบบ (Single-Turn Q&A)
+| โมเดล (Model) | ❌ ไม่ใช้สกิล | ⚡ หลังใช้สกิล (Golden Ratio) | 🇬🇧 English ล้วน | ประหยัดไปได้ |
 |:---|:---:|:---:|:---:|:---:|
-| **Gemini 4 Argon** *(SentencePiece 256k)* | **264 tok** *(1.00x)* | 622 tok *(2.36x)* | **349 tok** *(1.32x)* | **-273 tok (-43.9%)** |
-| **Astar 6.0** *(BPE 200k)* | **264 tok** *(1.00x)* | 678 tok *(2.57x)* | **375 tok** *(1.42x)* | **-303 tok (-44.7%)** |
-| **Claude Opus 5.5** *(Anthropic BPE)* | **273 tok** *(1.00x)* | 1,043 tok *(3.82x!)* | **500 tok** *(1.83x)* | **-543 tok (-52.1%)** |
+| **Gemini 4 Argon** *(SentencePiece 256k)* | 622 tok *(2.36x)* | **349 tok *(1.32x)*** | **264 tok** *(1.00x)* | **-273 tok (-43.9%)** |
+| **Astar 6.0** *(BPE 200k)* | 678 tok *(2.57x)* | **375 tok *(1.42x)*** | **264 tok** *(1.00x)* | **-303 tok (-44.7%)** |
+| **Claude Opus 5.5** *(Anthropic BPE)* | 1,043 tok *(3.82x!)* | **500 tok *(1.83x)*** | **273 tok** *(1.00x)* | **-543 tok (-52.1%)** |
 
-### 2. โหมดคิดวิเคราะห์ลึก (Deep Thinking / Multi-Agent Loop)
-| โมเดล (Model) | 🇬🇧 English ล้วน | ❌ ไทยเดิม (คิดไทย + ตอบไทย) | ⚡ หลังใช้สกิล (v2.0) | ประหยัดสุทธิ |
-|:---|:---:|:---:|:---:|:---:|
-| **Gemini 4 Argon** | 1,200 tok | 3,150 tok | **1,280 tok** | **ประหยัด 60% (เท่ากับ Eng)** |
-| **Astar 6.0** | 1,200 tok | 3,420 tok | **1,310 tok** | **ประหยัด 62% (เท่ากับ Eng)** |
-| **Claude Opus 5.5** | 1,250 tok | **4,850 tok** | **1,430 tok** | 🔥 **ประหยัด 70% (-3,420 tok!)** |
+### 2. งานโปรเจกต์เขียนโค้ดเต็มรูปแบบ (Full Agent Workflow: Code + Subagent + Memory)
+| โมเดล (Model) | ❌ ไม่ใช้สกิล (ไทยล้วน) | 🥈 รุ่นเก่า (v1.0) | 🏆 รุ่นใหม่ (v2.1) | 🇬🇧 English ล้วน | v2.1 ชนะ v1.0 |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Gemini 4 Argon** | 905 tok *(2.12x)* | 844 tok *(1.98x)* | **465 tok *(1.09x)*** | **427 tok** *(1.00x)* | 🔥 **ลดเพิ่มอีก -44.9%** |
+| **Astar 6.0** | 989 tok *(2.32x)* | 917 tok *(2.15x)* | **475 tok *(1.11x)*** | **427 tok** *(1.00x)* | 🔥 **ลดเพิ่มอีก -48.2%** |
+| **Claude Opus 5.5** | 1,444 tok *(3.28x)* | 1,274 tok *(2.90x)* | **531 tok *(1.21x)*** | **440 tok** *(1.00x)* | ⚡ **ลดเพิ่มอีก -58.3%** |
 
 ---
 
 ## 🛠️ วิธีติดตั้งสำหรับ Cursor, Windsurf และ ChatGPT
 
 * **Cursor / Windsurf**: คัดลอกไฟล์ [templates/cursor-rules.mdc](templates/cursor-rules.mdc) ไปไว้ที่ `.cursor/rules/thai-token-optimizer.mdc` หรือ `.windsurfrules`
-* **ChatGPT / Custom GPTs**: คัดลอกข้อความด้านล่างไปใส่ใน **Custom Instructions**:
-  ```markdown
-  [THAI TOKEN EFFICIENCY v2.0: GOLDEN RATIO + FULL LIFECYCLE]
-  1. Reasoning: Conduct all internal thinking, planning, and analysis in natural English.
-  2. Output: Respond in direct, conversational Thai. Skip greetings (สวัสดีครับ/ค่ะ/รบกวน) and never echo questions back.
-  3. Tech Terms: Keep coding, architecture, and system terms in standard English.
-  4. Code & Git: Write all code comments, docstrings, logs, and commit messages in concise English (use Thai only for UI strings).
-  5. Subagents & Memory: Communicate with subagents and store internal scratchpads/memory in concise English; summarize to the user in Thai.
-  ```
+* **ChatGPT / Custom GPTs**: คัดลอกข้อความจาก [templates/system-prompt-chatgpt.md](templates/system-prompt-chatgpt.md) ไปใส่ใน **Custom Instructions**
 
 ---
 
