@@ -32,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/i
 ```
 
 เมื่อรันคำสั่งจะมีเมนูให้เลือก 2 โหมด (สามารถรันซ้ำเพื่อสลับโหมดหรือยกเลิกได้ตลอดเวลา):
-- `1` **On-Demand Skill**: เรียกใช้เฉพาะเมื่อพิมพ์ `@thai-token-optimizer`
+- `1` **On-Demand Skill**: เรียกใช้เฉพาะเมื่อพิมพ์ `@thai-token-optimizer` หรือ '/thai-token-optimizer'
 - `2` **Always-On Global Rule**: ทำงานอัตโนมัติในทุกแชท (`GEMINI.md`, `CLAUDE.md`, `AGENTS.md`)
 - `3` **Disable Always-On**: ปิดโหมดอัตโนมัติ กลับไปเป็นโหมดเรียกใช้เอง
 - `4` **Uninstall**: ถอนการติดตั้งทั้งหมด
