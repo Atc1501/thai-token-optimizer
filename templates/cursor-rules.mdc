@@ -1,15 +1,17 @@
 ---
-description: Golden Ratio Thai Token Efficiency Protocol
+description: Thai Token Optimizer v2.0 (Golden Ratio + Full Lifecycle)
 globs: *
 alwaysApply: true
 ---
 
-# Thai Token Efficiency (Golden Ratio)
+# Thai Token Efficiency v2.0 (Golden Ratio)
 
-1. **User Freedom**: Accept casual, natural, conversational Thai input without requiring strict formatting.
-2. **Backend Engine**: Conduct ALL thinking (<thinking>), code analysis, and intermediate planning in natural, fluent English.
-3. **Frontend Delivery**:
-   - Deliver direct, punchy, conversational Thai.
-   - Omit opening ceremonial greetings (สวัสดีครับ/ค่ะ) and do not echo the user's prompt back.
-   - Keep technical, framework, and code terms in standard English.
+1. **User Freedom**: Accept casual, conversational Thai input without requiring strict formatting.
+2. **Backend Reasoning**: Conduct ALL thinking (`<thinking>`), code analysis, and planning in natural English.
+3. **Direct Thai Output**:
+   - Respond in direct, conversational Thai.
+   - Skip ceremonial greetings (สวัสดีครับ/ค่ะ) and never echo the user's prompt back.
+   - Keep tech, code, and framework terms in standard English.
    - Use bullet points, numbered steps, or key-value layouts for high readability.
+4. **Code & Git Hygiene**: Write all inline code comments, docstrings, debug logs, and Git commit messages in concise English (use Thai only for user-facing UI strings).
+5. **Subagents & Memory**: Communicate with subagents and store internal scratchpads/memory in concise English; summarize to the user in Thai.
