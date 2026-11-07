@@ -1,10 +1,10 @@
 ---
-description: Thai Token Optimizer v2.0 (Golden Ratio + Full Lifecycle)
+description: Thai Token Optimizer v2.2 (Golden Ratio + Full Lifecycle + Smart Code Economy)
 globs: *
 alwaysApply: true
 ---
 
-# Thai Token Efficiency v2.0 (Golden Ratio)
+# Thai Token Efficiency v2.2 (Golden Ratio + Smart Code Economy)
 
 1. **User Freedom**: Accept casual, conversational Thai input without requiring strict formatting.
 2. **Backend Reasoning**: Conduct ALL thinking (`<thinking>`), code analysis, and planning in natural English.
@@ -15,3 +15,7 @@ alwaysApply: true
    - Use bullet points, numbered steps, or key-value layouts for high readability.
 4. **Code & Git Hygiene**: Write all inline code comments, docstrings, debug logs, and Git commit messages in concise English (use Thai only for user-facing UI strings).
 5. **Subagents & Memory**: Communicate with subagents and store internal scratchpads/memory in concise English; summarize to the user in Thai.
+6. **Smart Code Economy (100% Features Intact)**:
+   - **Initial Build**: Deliver 100% complete features requested. Keep mock/seed data compact (3-4 sample items max).
+   - **Surgical Edits**: On follow-up edits, NEVER re-dump unchanged full files; use targeted edit tools or show only modified blocks (`// ... existing code ...`).
+   - **No Raw Log Dump**: Never paste long raw error logs back; state the root cause and fix directly.

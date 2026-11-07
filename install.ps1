@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Thai Token Optimizer v2.1 - Dual-Mode Installer & Mode Switcher
+    Thai Token Optimizer v2.2 - Dual-Mode Installer & Mode Switcher
 .DESCRIPTION
     Supports two activation modes:
     1. Skill Mode (On-Demand): Call via @thai-token-optimizer when needed.
@@ -37,14 +37,18 @@ $EndMarker   = "<!-- THAI_TOKEN_OPTIMIZER_END -->"
 
 $RuleBlock = @"
 $StartMarker
-# Thai Token Optimizer v2.1 (Always-On Golden Ratio)
+# Thai Token Optimizer v2.2 (Always-On Golden Ratio + Smart Code Economy)
 
 When the user communicates in Thai:
-1. **Backend Reasoning**: Conduct all internal thinking (`<thinking>`), planning, and technical analysis in natural English (saves ~70% reasoning tokens while keeping 100% intelligence).
+1. **Backend Reasoning**: Conduct all internal thinking (`<thinking>`), planning, and technical analysis in natural English (saves ~70-82% reasoning tokens while keeping 100% intelligence).
 2. **Direct Thai Output**: Reply in natural, direct Thai. Omit ceremonial greetings and never echo the user's question back. Use bullet points or numbered steps.
 3. **Technical Terms**: Keep coding, architecture, and system terms in standard English (`Config`, `Database`, `API`, `Function`).
 4. **Code & Git Hygiene**: Write all inline code comments, docstrings, logs, and Git commit messages in concise English (use Thai only for user-facing UI strings).
 5. **Subagents & Memory**: Communicate with subagents and store internal scratchpads/memory in concise English; summarize to the user in Thai.
+6. **Smart Code Economy (100% Features Intact)**:
+   - **Initial Build**: Deliver 100% complete features requested. Keep mock/seed data compact (3-4 representative items max instead of 15+ repetitive dummy entries).
+   - **Surgical Edits**: On follow-up edits, NEVER re-dump unchanged full files; use targeted edit tools or show only modified blocks (`// ... existing code ...`).
+   - **No Raw Log Dump**: Never paste long raw error logs back; state the root cause and fix directly.
 $EndMarker
 "@
 
@@ -60,7 +64,7 @@ function Install-SkillFiles {
             Invoke-RestMethod -Uri $SkillUrl -OutFile $TargetFile
         }
     }
-    Write-Host "  [OK] Installed On-Demand Skill (@thai-token-optimizer)" -ForegroundColor Green
+    Write-Host "  [OK] Installed On-Demand Skill (@thai-token-optimizer v2.2)" -ForegroundColor Green
 }
 
 function Remove-AlwaysOnRule {
@@ -99,7 +103,7 @@ function Enable-AlwaysOnRule {
             $NewContent = $RuleBlock + "`r`n"
         }
         [System.IO.File]::WriteAllText($File, $NewContent, $Utf8NoBom)
-        Write-Host "  [OK] Enabled Always-On Global Rule -> $File" -ForegroundColor Green
+        Write-Host "  [OK] Enabled Always-On Global Rule (v2.2) -> $File" -ForegroundColor Green
     }
 }
 
@@ -111,7 +115,7 @@ function Show-Status {
         if ($Raw -and $Raw.Contains($StartMarker)) { $AlwaysOnActive = $true }
     }
     Write-Host "`n============================================================" -ForegroundColor Cyan
-    Write-Host " THAI TOKEN OPTIMIZER v2.1 - CURRENT STATUS" -ForegroundColor Cyan
+    Write-Host " THAI TOKEN OPTIMIZER v2.2 - CURRENT STATUS" -ForegroundColor Cyan
     Write-Host "============================================================" -ForegroundColor Cyan
     Write-Host ("  * Mode 1: On-Demand Skill (@thai-token-optimizer) : " + ($(if ($SkillInstalled) { "INSTALLED" } else { "NOT INSTALLED" })))
     Write-Host ("  * Mode 2: Always-On Global Rule (Auto every chat) : " + ($(if ($AlwaysOnActive) { "ACTIVE (ON)" } else { "INACTIVE (OFF)" })))

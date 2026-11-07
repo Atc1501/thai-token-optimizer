@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
-# Thai Token Optimizer v2.1 - Dual-Mode Installer & Mode Switcher (macOS / Linux)
-# Usage:
-#   Interactive Menu : bash install.sh
-#   Mode 1 (Skill)   : bash install.sh skill
-#   Mode 2 (AlwaysOn): bash install.sh always-on
-#   Disable AlwaysOn : bash install.sh disable
-#   Uninstall All    : bash install.sh uninstall
+# Thai Token Optimizer v2.2 - Dual-Mode Installer & Mode Switcher (macOS / Linux)
 
 set -e
 MODE="${1:-menu}"
@@ -30,14 +24,18 @@ END_MARKER="<!-- THAI_TOKEN_OPTIMIZER_END -->"
 
 read -r -d '' RULE_BLOCK << 'EOF' || true
 <!-- THAI_TOKEN_OPTIMIZER_START -->
-# Thai Token Optimizer v2.1 (Always-On Golden Ratio)
+# Thai Token Optimizer v2.2 (Always-On Golden Ratio + Smart Code Economy)
 
 When the user communicates in Thai:
-1. **Backend Reasoning**: Conduct all internal thinking (`<thinking>`), planning, and technical analysis in natural English (saves ~70% reasoning tokens while keeping 100% intelligence).
-2. **Direct Thai Output**: Reply in natural, direct Thai. Omit ceremonial greetings (`สวัสดีครับ/ค่ะ`) and never echo the user's question back. Use bullet points or numbered steps.
+1. **Backend Reasoning**: Conduct all internal thinking (`<thinking>`), planning, and technical analysis in natural English (saves ~70-82% reasoning tokens while keeping 100% intelligence).
+2. **Direct Thai Output**: Reply in natural, direct Thai. Omit ceremonial greetings and never echo the user's question back. Use bullet points or numbered steps.
 3. **Technical Terms**: Keep coding, architecture, and system terms in standard English (`Config`, `Database`, `API`, `Function`).
 4. **Code & Git Hygiene**: Write all inline code comments, docstrings, logs, and Git commit messages in concise English (use Thai only for user-facing UI strings).
 5. **Subagents & Memory**: Communicate with subagents and store internal scratchpads/memory in concise English; summarize to the user in Thai.
+6. **Smart Code Economy (100% Features Intact)**:
+   - **Initial Build**: Deliver 100% complete features requested. Keep mock/seed data compact (3-4 representative items max instead of 15+ repetitive dummy entries).
+   - **Surgical Edits**: On follow-up edits, NEVER re-dump unchanged full files; use targeted edit tools or show only modified blocks (`// ... existing code ...`).
+   - **No Raw Log Dump**: Never paste long raw error logs back; state the root cause and fix directly.
 <!-- THAI_TOKEN_OPTIMIZER_END -->
 EOF
 
@@ -50,7 +48,7 @@ install_skill_files() {
       curl -fsSL "$SKILL_URL" -o "$dir/SKILL.md"
     fi
   done
-  echo "  [OK] Installed On-Demand Skill (@thai-token-optimizer)"
+  echo "  [OK] Installed On-Demand Skill (@thai-token-optimizer v2.2)"
 }
 
 remove_always_on_rule() {
@@ -72,7 +70,7 @@ enable_always_on_rule() {
     else
       printf "%s\n" "$RULE_BLOCK" > "$file"
     fi
-    echo "  [OK] Enabled Always-On Global Rule -> $file"
+    echo "  [OK] Enabled Always-On Global Rule (v2.2) -> $file"
   done
 }
 
@@ -85,22 +83,22 @@ show_status() {
   fi
   echo ""
   echo "============================================================"
-  echo " THAI TOKEN OPTIMIZER - CURRENT STATUS"
+  echo " THAI TOKEN OPTIMIZER v2.2 - CURRENT STATUS"
   echo "============================================================"
-  echo "  • On-Demand Skill (@thai-token-optimizer) : $skill_installed"
-  echo "  • Always-On Global Rule (Auto every chat) : $always_on"
+  echo "  * Mode 1: On-Demand Skill (@thai-token-optimizer) : $skill_installed"
+  echo "  * Mode 2: Always-On Global Rule (Auto every chat) : $always_on"
   echo "============================================================"
   echo ""
 }
 
 if [ "$MODE" = "menu" ]; then
   show_status
-  echo "Select Mode:"
-  echo "  [1] Mode 1: On-Demand Skill Only (เรียกใช้เมื่อพิมพ์ @thai-token-optimizer)"
-  echo "  [2] Mode 2: Always-On Global Rule (ทำงานอัตโนมัติทุกแชทตั้งแต่วินาทีแรก)"
-  echo "  [3] Disable Always-On (ยกเลิก Always-On กลับไปเป็นโหมดเรียกใช้เอง)"
-  echo "  [4] Uninstall All (ถอนการติดตั้งทั้งหมด)"
-  echo "  [5] Check Status Only (ดูสถานะปัจจุบัน)"
+  echo "Select Activation Mode:"
+  echo "  [1] Mode 1: On-Demand Skill Only (Invoke manually via @thai-token-optimizer)"
+  echo "  [2] Mode 2: Always-On Global Rule (Auto-active in every chat from Turn 0)"
+  echo "  [3] Disable Always-On (Revert to Mode 1: On-Demand Skill Only)"
+  echo "  [4] Uninstall All (Remove both Always-On Rule and Skill files)"
+  echo "  [5] Check Status Only"
   read -r -p "Enter number (1-5): " choice
   case "$choice" in
     1) MODE="skill" ;;

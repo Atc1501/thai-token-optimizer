@@ -1,11 +1,11 @@
-# ⚡ Thai Token Optimizer v2.1 (Golden Ratio + Dual-Mode Activation)
+# ⚡ Thai Token Optimizer v2.2 (Golden Ratio + Smart Code Economy)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.1.0-orange.svg)](SKILL.md)
+[![Version](https://img.shields.io/badge/Version-2.2.0-orange.svg)](SKILL.md)
 [![Universal Skill](https://img.shields.io/badge/Skill-Universal%20Agent%20Standard-success.svg)](SKILL.md)
-[![Token Savings](https://img.shields.io/badge/Token%20Savings-60%25%20to%2075%25-brightgreen.svg)](#-frontier-models-benchmark)
+[![Token Savings](https://img.shields.io/badge/Token%20Savings-75.5%25%20to%2090%25-brightgreen.svg)](#-ผลทดสอบจริงจากผู้ใช้งาน-real-world-e-commerce-build-benchmark)
 
-> **มาตรฐาน Golden Ratio v2.1 สำหรับภาษาไทยใน AI Agents และ LLMs** — ลดการกิน Token ลง **60% – 75%** จนเทียบเท่าหรือประหยัดกว่าภาษาอังกฤษ โดยที่ **AI ไม่ฉลาดน้อยลงแม้แต่ 1%** และ **ผู้ใช้พิมพ์คุยภาษาไทยได้ตามธรรมชาติ สบายๆ ไม่ต้องเกร็งไวยากรณ์**
+> **มาตรฐาน Golden Ratio v2.2 สำหรับภาษาไทยใน AI Agents และ LLMs** — ลดการกิน Token ส่วนภาษาและสมองลง **75.5%** (ห่างจากอังกฤษเพียง **2.3%**) พร้อมระบบ **Smart Code Economy** ที่ช่วยลด Token ก้อนโค้ดและการแก้โค้ดต่อเนื่องลงอีก **70% – 90%** โดย **ไม่ตัดฟีเจอร์ของงานทิ้งแม้แต่นิดเดียว**
 
 ---
 
@@ -70,17 +70,24 @@ curl -fsSL https://raw.githubusercontent.com/Atc1501/thai-token-optimizer/main/i
 
 ---
 
-## 💡 สถาปัตยกรรม Golden Ratio v2.1 (ครบวงจร 6 จุด)
+## 💡 สถาปัตยกรรม Golden Ratio v2.2 (ครบวงจร 9 จุด: ภาษา + สมอง + โค้ด)
 
 ```
 [ ผู้ใช้พิมพ์คุยภาษาไทยตามธรรมชาติ สบายๆ ไม่ต้องเกร็ง ]
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│ 1. Internal Reasoning (<thinking>) ➔ Natural English (ลดทันที 70%)   │
-│ 2. Subagent / Worker Handoffs      ➔ 100% English (ไม่เสียภาษี x2)   │
-│ 3. Persistent Memory / Scratchpads ➔ Dense English (โหลดซ้ำไม่บวม)   │
-│ 4. Code Comments / Logs / Commits  ➔ Concise English (โค้ดสะอาด)     │
+│ A. ส่วนภาษาและสมอง (Language & Cognitive Engine - ลดทันที 75.5%)     │
+│  1. Internal Reasoning (<thinking>) ➔ Natural English               │
+│  2. Subagent / Worker Handoffs      ➔ 100% English (ไม่เสียภาษี x2) │
+│  3. Persistent Memory / Scratchpads ➔ Dense English (โหลดซ้ำไม่บวม) │
+│  4. Code Comments / Logs / Commits  ➔ Concise English               │
+├─────────────────────────────────────────────────────────────────────┤
+│ B. ส่วนประหยัดก้อนโค้ด (Smart Code Economy - ลดเพิ่ม 70%–90%)       │
+│  5. Surgical Edit / Diff-Only       ➔ แก้เฉพาะจุด ไม่พ่นไฟล์เต็มซ้ำ   │
+│  6. Compact Mock Data               ➔ ข้อมูลตัวอย่างกระชับ 3–4 ชิ้น  │
+│  7. No Raw Log Dump                 ➔ ไม่ก๊อป Error ยาวๆ มาแปะซ้ำ   │
+│  * การันตี: สร้างฟีเจอร์ครบ 100% ตามสั่ง (ไม่ตัดฟีเจอร์ทิ้ง)          │
 └──────────────────────────┬──────────────────────────────────────────┘
                            │
                            ▼
