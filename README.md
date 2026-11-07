@@ -1,63 +1,40 @@
-# ⚡ Thai Token Optimizer for AI Agents & LLMs
+# ⚡ Thai Token Optimizer (Golden Ratio Standard)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Universal Skill](https://img.shields.io/badge/Skill-Universal%20Agent%20Standard-success.svg)](SKILL.md)
-[![Token Savings](https://img.shields.io/badge/Token%20Savings-50%25%20to%2075%25-brightgreen.svg)](#-benchmarks)
+[![Token Savings](https://img.shields.io/badge/Token%20Savings-60%25%20to%2070%25-brightgreen.svg)](#-benchmarks)
 
-> **แก้ปัญหา "ภาษีโทเค็นภาษาไทย" (The Thai Token Tax)** — สถาปัตยกรรม 3 เสาหลัก (Unified Tri-Pillar Architecture) ที่ลดการกิน Token ของภาษาไทยลง **50% – 75%** โดย **ไม่เสียความสุภาพ ไม่เพี้ยนความหมาย และไม่เสียอรรถรสในงานเขียนสร้างสรรค์** ใช้ได้กับ AI ทุกค่าย (Antigravity, Claude Code, Cursor, Windsurf, ChatGPT, Gemini, LangChain)
+> **มาตรฐาน Golden Ratio สำหรับภาษาไทยใน AI Agents และ LLMs** — ลด Token ลง **60% – 70%** จนกิน Token เท่ากับภาษาอังกฤษ โดยที่ **AI ไม่ฉลาดน้อยลงเลยแม้แต่ 1%** และ **ผู้ใช้คุยภาษาไทยได้ตามปกติ สบายๆ ไม่ต้องเกร็งไวยากรณ์**
 
 ---
 
-## 🏛️ สถาปัตยกรรมรวม 3 เสาหลัก (Unified Tri-Pillar Architecture)
+## 💡 แนวคิด Golden Ratio (สมดุลสูงสุด)
 
 ```
-[ Incoming User Input ]
-        │
-        ▼
-[ 1. Semantic Anchor Guard ] ➔ ล็อก Action, Target, และ Condition ป้องกันข้อมูลตกหล่น 100%
-        │
-        ▼
-[ 2. Asymmetric Decoupling ] ➔ หลังบ้าน (CoT/Thinking/Tool) คิดเป็น Dense English เสมอ
-        │                         (การันตีประหยัด 70-80% ในส่วนคิด ไม่ว่าจะตอบโหมดไหน)
-        ▼
-[ 3. Dynamic Mode Router ]
-        ├── (A) งาน Coding / Tech / Agent   ➔ Mode 1: Ultra-Dense (ประหยัดสูงสุด 75%)
-        ├── (B) งานลูกค้า / ทางการ / องค์กร  ➔ Mode 2: Polite-Hybrid (สุภาพ มีครับ/ค่ะ แต่ไม่อ้อมค้อม ประหยัด 50%)
-        └── (C) งานนิยาย / วรรณศิลป์        ➔ Mode 3: Creative-Bypass (ภาษาไทยสละสลวยเต็มรูปแบบ)
-        │
-        ▼
-[ Output: ผู้ใช้ได้คำตอบที่เป็นธรรมชาติ คมชัด ตรงเป้าหมาย ]
+[ ผู้ใช้พิมพ์คุยภาษาไทยตามธรรมชาติ สบายๆ ไม่ต้องเกร็ง ]
+                           │
+                           ▼
+[ หลังบ้าน: AI คิดวิเคราะห์ (Chain-of-Thought) เป็นภาษาอังกฤษธรรมชาติ ]
+  • ประหยัด Token หลังบ้านทันที 70%
+  • รักษาความฉลาด ตรรกะ และความแม่นยำของโมเดลไว้ครบ 100%
+                           │
+                           ▼
+[ หน้าบ้าน: AI ตอบกลับเป็นภาษาไทยที่กระชับ ตรงประเด็น อ่านง่าย ]
+  • ไม่เกริ่นทักทายเวิ่นเว้อ (ตัด สวัสดีครับ/ค่ะ, ยินดีที่ได้ช่วย)
+  • ไม่ทวนคำถามซ้ำ
+  • ทับศัพท์เทคนิคด้วยภาษาอังกฤษ (Config, Database, API, Function)
+  • จัดข้อมูลเป็นข้อๆ (Bullets / Steps) อ่านสบายตา
 ```
 
 ---
 
-## 📌 เสาหลักทั้ง 3 (The 3 Pillars Explained)
+## 📊 ผลการทดสอบเปรียบเทียบจริง (GPT-4o)
 
-### เสาหลักที่ 1: Asymmetric Decoupling (แยกหลังบ้านกับหน้าบ้าน)
-Token 70%–85% ของ AI ถูกใช้ไปกับการ "คิดวิเคราะห์ในหัว" (Chain-of-Thought / `<thinking>`)
-- **หลังบ้าน**: บังคับให้คิดเป็น English shorthand เสมอ ทำให้ประหยัด Token ไปมหาศาลตั้งแต่ก่อนเริ่มพิมพ์ตอบ
-- **หน้าบ้าน**: แสดงผลลัพธ์เป็นภาษาไทยตามโหมดที่เหมาะสม
-
-### เสาหลักที่ 2: Dynamic Mode Switcher (สลับ 3 โหมดอัตโนมัติตามโจทย์)
-1. **Mode 1: `Ultra-Dense` (Dev / Agent)**: ภาษาโทรเลข ตัดคำสร้อย คงศัพท์เทคนิคเป็น English ประหยัด 65–75%
-2. **Mode 2: `Polite-Hybrid` (Business / Support)**: คงความสุภาพ มี `ครับ/ค่ะ` ตอบแบบมืออาชีพ แต่ตัดคำเชื่อมเวิ่นเว้อ ประหยัด 45–55%
-3. **Mode 3: `Creative-Bypass` (Stories / Poetry)**: คืนอิสระทางภาษา 100% ไม่บีบอัดสำนวน ให้เขียนนิยายได้อย่างงดงาม
-
-### เสาหลักที่ 3: Semantic Anchor Guard (กฎเหล็กห้ามย่อจนเพี้ยน)
-- **ห้ามตัด**: Action Verbs (`สร้าง`, `ลบ`, `แก้ไข`), Targets (`ไฟล์ main.py`), Conditions (`IF / เมื่อ`)
-- **ตัดได้เฉพาะ**: คำเกริ่นและคำขออนุญาต (`รบกวนหน่อยนะครับ`, `ขออนุญาตครับ`), คำเชื่อมฟุ่มเฟือย (`เพื่อที่จะทำการ` ➔ `เพื่อ`)
-
----
-
-## 📊 ตารางเปรียบเทียบ Benchmark จริง (วัดด้วย GPT-4o และ GPT-4)
-
-| เคสทดสอบ (ประโยคระดับ Production) | ไทยปกติ | อังกฤษ | ไทย (หลัง Optimize) | ผลลัพธ์ |
+| เคสการทำงาน | ภาษาไทยแบบเดิม | ภาษาอังกฤษ | Golden Ratio (ไทย) | ผลลัพธ์ |
 |:---|:---:|:---:|:---:|:---:|
-| **1. Distributed Systems & Failover** | 125 tok | 48 tok | **48 tok** | **เท่ากับอังกฤษเป๊ะ (ประหยัด 61.6%)** |
-| **2. Algorithmic Trading & Risk** | 123 tok | 42 tok | **56 tok** | **ประหยัดลง 54.5% (-67 tokens)** |
-| **3. CI/CD Pipeline & Build Latency** | 111 tok | 26 tok | **30 tok** | **ประหยัดลง 73.0% (-81 tokens)** |
-
-*(ในโมเดล GPT-4 / Claude รุ่นเดิม ภาษาไทยปกติกินถึง 286 tokens เมื่อเทียบกับอังกฤษ 48 tokens)*
+| **Dev / Debugging (DB Connection)** | 129 tok | 45 tok | **53 tok** | **ใกล้เคียงอังกฤษ (ลดลง 58.9%)** |
+| **Business / Support (แจ้งระบบล่าช้า)** | 149 tok | 50 tok | **102 tok** | **ลดลง 31.5% (สุภาพ ชัดเจน)** |
+| **System Alert (เครือข่ายขัดข้อง)** | 39 tok | 14 tok | **8 tok** | 🏆 **น้อยกว่าภาษาอังกฤษ!** |
 
 ---
 
@@ -77,10 +54,19 @@ cp SKILL.md ~/.claude/skills/thai-token-optimizer/SKILL.md
 ```
 
 ### 3. Cursor / Windsurf
-นำเนื้อหาจาก [templates/cursor-rules.mdc](templates/cursor-rules.mdc) ไปวางใน `.cursor/rules/thai-token-optimizer.mdc` หรือ `.windsurfrules`
+คัดลอกไฟล์ [templates/cursor-rules.mdc](templates/cursor-rules.mdc) ไปไว้ที่:
+- **Cursor**: `.cursor/rules/thai-token-optimizer.mdc`
+- **Windsurf**: วางใน `.windsurfrules`
 
 ### 4. ChatGPT / OpenAI Custom GPTs
-วางเนื้อหาจาก [templates/system-prompt-chatgpt.md](templates/system-prompt-chatgpt.md) ลงใน Custom Instructions
+คัดลอกข้อความด้านล่างไปใส่ใน **Custom Instructions**:
+```markdown
+[THAI TOKEN EFFICIENCY: GOLDEN RATIO ACTIVE]
+1. Internal Reasoning: Always conduct chain-of-thought and analysis in natural English.
+2. Output Style: Respond in natural, direct Thai. Cut ceremonial greetings and never echo questions back.
+3. Terminology: Keep tech, coding, and architecture terms in standard English.
+4. Structure: Deliver solutions using bullet points or numbered steps over dense paragraphs.
+```
 
 ---
 

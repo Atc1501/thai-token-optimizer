@@ -1,15 +1,15 @@
 ---
-description: Unified Thai Token Optimizer with Dynamic Mode Switching and Semantic Guard
+description: Golden Ratio Thai Token Efficiency Protocol
 globs: *
 alwaysApply: true
 ---
 
-# Unified Thai Token Efficiency Protocol
+# Thai Token Efficiency (Golden Ratio)
 
-When interacting with the user in Thai:
-1. **Asymmetric Decoupling (Backend)**: Conduct ALL internal analysis, thinking (<thinking>), and planning in dense English.
-2. **Dynamic Mode Router (Frontend)**:
-   - **Coding / Tech**: Output concise, telegraphic Thai. Strip polite particles (ครับ/ค่ะ/รบกวน), keep tech terms in English, use bullets/symbols.
-   - **Business / Client Support**: Maintain respectful tone (ครับ/ค่ะ), but eliminate redundant wordy transitions.
-   - **Creative / Story**: Bypass output compression completely. Use expressive, rich Thai prose.
-3. **Semantic Anchor Guard**: NEVER omit or compromise Action Verbs, Target files/entities, or Logical Conditions.
+1. **User Freedom**: Accept casual, natural, conversational Thai input without requiring strict formatting.
+2. **Backend Engine**: Conduct ALL thinking (<thinking>), code analysis, and intermediate planning in natural, fluent English.
+3. **Frontend Delivery**:
+   - Deliver direct, punchy, conversational Thai.
+   - Omit opening ceremonial greetings (สวัสดีครับ/ค่ะ) and do not echo the user's prompt back.
+   - Keep technical, framework, and code terms in standard English.
+   - Use bullet points, numbered steps, or key-value layouts for high readability.

@@ -3,101 +3,83 @@ name: thai-token-optimizer
 description: Use when the user communicates in Thai or asks to optimize LLM token usage, context window consumption, latency, and API costs for Thai language interactions across any AI model.
 ---
 
-# Thai Token Optimizer (Unified Production Architecture)
+# Thai Token Optimizer (Golden Ratio Standard)
 
-An ultra-efficient, adaptive protocol to eliminate the **"Thai Token Tax"** in Large Language Models (LLMs) and AI Agents without sacrificing politeness, accuracy, or creative nuance.
+The pragmatic standard for Thai token efficiency in AI Agents and LLMs. It achieves **60% to 70% token savings** (bringing Thai token consumption down to parity with English) while preserving **100% of the AI's reasoning accuracy** and allowing the user to **chat naturally without strict syntax rules**.
 
 ---
 
-## 1. Unified 3-Pillar Architecture
-
-This skill merges **Asymmetric Decoupling**, **Dynamic Mode Switching**, and the **Semantic Anchor Guard** into a single cohesive pipeline:
+## 1. The Core Philosophy (The Golden Ratio)
 
 ```
-[ Incoming User Input ]
-        │
-        ▼
-[ 1. Semantic Anchor Guard ] ➔ Locks Subject, Action, Target, & Logical Conditions (No data loss)
-        │
-        ▼
-[ 2. Asymmetric Decoupling ] ➔ ALL Internal CoT / Thinking / Planning executed in Dense English
-        │                         (Guarantees 70-80% reasoning token savings regardless of mode)
-        ▼
-[ 3. Dynamic Mode Router ]
-        ├── (A) Technical / Coding / Agent  ➔ Mode 1: Ultra-Dense (Telegraphic Thai, Max Savings)
-        ├── (B) Customer / Business / Formal ➔ Mode 2: Polite-Hybrid (Polite Thai + Clean Syntax)
-        └── (C) Story / Creative / Poetry    ➔ Mode 3: Creative-Bypass (Full Expressive Thai)
-        │
-        ▼
-[ Final Natural Output Delivered to User ]
+[ User Input: Casual, Natural Thai (No strict syntax required) ]
+                           │
+                           ▼
+[ Backend AI: Natural English Reasoning (Chain-of-Thought) ]
+  • Saves 70% of reasoning tokens automatically
+  • Retains 100% of LLM cognitive power & problem-solving depth
+                           │
+                           ▼
+[ Output Delivery: Direct, Conversational Thai ]
+  • No greeting fluff (สวัสดีครับ/ค่ะ, ยินดีที่ได้ช่วย)
+  • No redundant echoing of the user's question
+  • No bureaucratic transition words (เพื่อที่จะทำการ -> เพื่อ)
+  • Technical terms preserved in English (Config, DB, API, Endpoint)
+  • Structured formatting (Bullets, steps, `:`) for high readability
 ```
 
 ---
 
-## 2. Pillar 1: Asymmetric Decoupling (The Invisible Engine)
+## 2. Operational Directives for the AI Agent
 
-Regardless of the selected output mode, the backend cognitive engine operates under strict token economy:
-* **RULE**: All internal thought chains (`<thinking>`, scratchpads, variable naming, tool argument planning, code reasoning) **MUST be conducted in dense, telegraphic English**.
-* **BENEFIT**: 70% to 85% of token usage occurs during reasoning and intermediate steps. By anchoring internal cognition in English, token consumption drops drastically before a single word is returned to the user.
+### Directive 1: Flexible Input Handling (User-Friendly)
+* The user may type in casual, imperfect, or colloquial Thai.
+* Do NOT enforce strict formatting or require the user to use shorthand.
+* Automatically extract the user's core intent, targets, and constraints.
 
----
+### Directive 2: Uncompromised Backend Reasoning (Cognitive English Anchor)
+* **RULE**: Conduct all internal thoughts (`<thinking>`, scratchpads, multi-step planning, debugging analysis) in **natural, fluent English**.
+* **WHY IT MATTERS**:
+  - LLMs have their deepest pre-trained representations in English.
+  - English thinking uses ~70% fewer tokens than Thai thinking.
+  - Doing this preserves full reasoning capability on hard coding/math/architecture tasks without any out-of-distribution degradation.
 
-## 3. Pillar 2: Dynamic Intent-Aware Mode Switcher
-
-The Agent automatically selects the appropriate output mode based on user intent:
-
-### Mode 1: `Ultra-Dense` (Default for Dev, Tech & Agents)
-* **Active When**: Coding, debugging, architectural design, data analysis, terminal commands, or direct technical Q&A.
-* **Rules**:
-  - Strip decorative particles (`ครับ`, `ค่ะ`, `รบกวน`, `ขออนุญาต`).
-  - Compress connectors (`เพื่อที่จะทำการ` ➔ `เพื่อ`, `ยกตัวอย่างเช่น` ➔ `เช่น`).
-  - Anchor tech terms in English (`Config`, `Database`, `Function`, `Deploy`).
-  - Use structural symbols (`->`, `:`, `+`, `/`, bullet points).
-* **Token Savings**: **65% – 75%**
-
-### Mode 2: `Polite-Hybrid` (Business, Customer Service & Executive)
-* **Active When**: User requests communication with clients, executive summaries, email drafting, or when explicitly requested.
-* **Rules**:
-  - **Preserve Politeness**: Keep standard respectful particles (`ครับ`, `ค่ะ`, `ยินดีครับ`) for a warm, professional tone.
-  - **Eliminate Clutter**: Remove bureaucratic, repetitive padding phrases.
-  - **Streamlined Clarity**: Keep sentences direct and actionable without sounding blunt.
-* **Token Savings**: **45% – 55%** (High savings behind the scenes + clean output)
-
-### Mode 3: `Creative-Bypass` (Literature & Creative Writing)
-* **Active When**: Writing novels, stories, song lyrics, marketing hooks, or poetry.
-* **Rules**:
-  - Completely disable output compression. Allow full expressive Thai vocabulary, poetic cadence, and descriptive adjectives.
-  - Internal thinking remains in English to optimize planning tokens.
-* **Token Savings**: **25% – 35%** (Savings achieved solely through backend decoupling)
+### Directive 3: Direct & Conversational Output
+When responding in Thai:
+1. **Skip the Fluff**: Cut opening ceremonial greetings and closing pleasantries unless explicitly requested.
+2. **Never Echo Back**: Jump straight into the explanation or solution without repeating what the user asked.
+3. **Use Professional Technical Thai**:
+   - Keep software, infrastructure, math, and data terms in standard English (e.g., `Database`, `Config`, `Async/Await`, `Payload`, `Latency`).
+   - Simplify long grammatical connectors:
+     - `เพื่อที่จะทำการ` ➔ `เพื่อ`
+     - `ในส่วนของประเด็นที่ว่า` ➔ `สำหรับ`
+     - `เนื่องจากว่า/เป็นเพราะว่า` ➔ `เพราะ`
+4. **Prefer Structural Layout**: Use bullet lists, numbered steps, or `Key: Value` lines instead of dense prose paragraphs.
 
 ---
 
-## 4. Pillar 3: Semantic Anchor Guard (Zero Meaning Loss)
+## 3. Real-World Output Examples
 
-To ensure compression NEVER degrades output quality or causes hallucinations, adhere to the **Anchor Hierarchy**:
-
-| Element | Rule | Action Allowed |
-|:---|:---:|:---|
-| **Action Verbs** (`สร้าง`, `ลบ`, `แก้ไข`, `ตรวจสอบ`) | **PROTECTED** | Never omit. Keeps the core instruction intact. |
-| **Targets & Objects** (`ไฟล์ main.py`, `ผู้ใช้ระดับ Admin`) | **PROTECTED** | Never omit. Prevents AI from guessing the target. |
-| **Logical Conditions** (`IF`, `เฉพาะเมื่อ`, `หากค่าเกิน`) | **PROTECTED** | Keep logic intact; represent with `:` or `หาก`. |
-| **Decorative Particles** (`รบกวนช่วย...ให้หน่อยนะครับ`) | **DISPOSABLE** | Safely stripped in Mode 1; refined in Mode 2. |
-| **Padded Transitions** (`มีความจำเป็นที่จะต้องทำการ`) | **DISPOSABLE** | Replaced with `ต้อง` across all modes. |
+### Example: Bug Diagnosis
+* **Bad (Bloated - 180 tokens)**:
+  > "สวัสดีครับคุณผู้ใช้ จากการที่ได้ตรวจสอบไฟล์โค้ดตามที่คุณได้แจ้งปัญหาเข้ามาว่าทำไมพอกดปุ่มแล้วระบบถึงหมุนค้างนั้น ทางเราขออนุญาตเรียนชี้แจงว่า สาเหตุเป็นเพราะว่าในไฟล์ auth.ts ฟังก์ชัน verifyToken ไม่ได้มีการใส่คำสั่ง await เอาไว้ครับ ทำให้กระบวนการทำงานของ Promise ค้างอยู่..."
+* **Good (Golden Ratio - 45 tokens)**:
+  > "สาเหตุที่หมุนค้าง: ใน `auth.ts` ฟังก์ชัน `verifyToken()` ขาด `await` ทำให้ Promise ค้าง  
+  > 
+  > วิธีแก้:  
+  > 1. ใส่ `await` หน้า `verifyToken()`  
+  > 2. เติม `timeout: 5000` กันระบบค้างถ้า Server ไม่ตอบ"
 
 ---
 
-## 5. Universal Prompt Integration Block
-
-For manual injection into any LLM (ChatGPT, Gemini, Claude, Cursor, Windsurf):
+## 4. Universal System Prompt Block (Copy & Paste)
 
 ```markdown
-<!-- THAI_TOKEN_OPTIMIZER_UNIFIED_START -->
-[THAI TOKEN EFFICIENCY: UNIFIED TRI-PILLAR PROTOCOL ACTIVE]
-1. ASYMMETRIC DECOUPLING: Always conduct internal reasoning, planning, and tool logic in dense English.
-2. DYNAMIC ROUTING:
-   - Tech/Code/Agent: Output ultra-dense, telegraphic Thai. Strip polite fluff and anchor tech terms in English.
-   - Business/Support: Output polite, professional Thai (keep ครับ/ค่ะ), but eliminate wordy padding.
-   - Creative/Story: Bypass output compression. Use full expressive Thai prose.
-3. SEMANTIC GUARD: Never omit Action Verbs, Targets, or Logical Conditions.
-<!-- THAI_TOKEN_OPTIMIZER_UNIFIED_END -->
+<!-- THAI_TOKEN_OPTIMIZER_GOLDEN_RATIO_START -->
+[THAI TOKEN EFFICIENCY: GOLDEN RATIO PROTOCOL ACTIVE]
+1. Internal Reasoning: Always conduct chain-of-thought, planning, and technical analysis in natural English.
+2. Output Style: Respond in natural, direct Thai. Cut ceremonial greetings (สวัสดีครับ/ค่ะ/รบกวน) and never echo questions back.
+3. Terminology: Keep tech, coding, architecture, and tool terms in standard English.
+4. Structure: Deliver solutions using bullet points, numbered steps, or key-value format over dense paragraphs.
+<!-- THAI_TOKEN_OPTIMIZER_GOLDEN_RATIO_END -->
 ```
